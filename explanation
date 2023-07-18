@@ -1,0 +1,27 @@
+def count_consistent_strings(allowed, words)
+This line defines a method called count_consistent_strings that takes two arguments: allowed and words. The method will calculate and return the count of consistent strings in the words array.
+
+count = 0
+A variable count is initialized to 0. This variable will be used to store the count of consistent strings found in the words array.
+
+words.each do |word|
+This starts a loop that iterates over each element (word) in the words array. The loop will execute the code inside its block for each element in the array.
+
+consistent = word.chars.all? { |char| allowed.include?(char) }
+Within the loop, this line of code sets the consistent variable to a boolean value. It checks if each character in the word is present in the allowed string.
+
+Let's break down this line further:
+
+word.chars: This converts the string word into an array of characters. For example, if word is "hello," word.chars will result in ["h", "e", "l", "l", "o"].
+.all?: This is an enumerable method in Ruby that checks if a condition holds true for all elements in the array. It takes a block of code that defines the condition.
+{ |char| allowed.include?(char) }: This is the block of code passed to .all?. For each character (char) in the word, it checks if that character is included in the allowed string. If all characters in the word are present in the allowed string, consistent will be set to true; otherwise, it will be set to false.
+count += 1 if consistent
+After evaluating the consistent variable, this line increments the count variable by 1 if consistent is true. In other words, if the word is consistent (all its characters are present in the allowed string), then we increment the count.
+
+end
+This marks the end of the loop block. It indicates that the code inside the loop has finished executing, and the program should continue to the next iteration or proceed to the code after the loop.
+
+count
+Finally, outside the loop, the method returns the value of the count variable. This will be the total count of consistent strings found in the words array.
+
+In summary, the count_consistent_strings method takes an array of allowed characters (allowed) and an array of words (words). It iterates through each word, checking if each character in the word is present in the allowed string. If a word consists of only allowed characters, it increments the count. The method returns the total count of consistent strings.
